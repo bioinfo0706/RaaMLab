@@ -1,10 +1,10 @@
-##<font color=red>***RaaMLab***</font>
+### <font color=red>***RaaMLab***</font>
 
-####**A MATLAB toolbox that generates amino acid groups and reduced amino acid modes**
+### **A MATLAB toolbox that generates amino acid groups and reduced amino acid modes**
 ======
 
-######Xiaoqing Liu, Tao Zhou, Jin Tao, Jiaqi, Pingan He, Qi Dai. RaaMLab: A MATLAB toolbox that generates amino acid groups and reduced amino acid modes. </br>To be submitted to BioSystems.
-######Qi Dai</br>College of Life Sciences,</br>Zhejiang Sci-Tech University, Hangzhou 310018,</br>China
+Xiaoqing Liu, Tao Zhou, Jin Tao, Jiaqi, Pingan He, Qi Dai. RaaMLab: A MATLAB toolbox that generates amino acid groups and reduced amino acid modes. </br>To be submitted to BioSystems.
+　　Qi Dai</br>College of Life Sciences,</br>Zhejiang Sci-Tech University, Hangzhou 310018,</br>China
 
 ### Overview
 　　RaaMLab is a free and open-source MATLAB toolbox that is to generate amino acid groupings using amino acids' properties and classification methods, and further extract the structural and physicochemical features of reduced amino acids. It offers four kinds of databases on physico-chemical properties of amino acids and amino acid groupings, 49 amino acid classification methods, and five kinds of biophyscio-chemical features of reduced amino acids including content-based features, correlation-based features, order-based features, position-based features and pseudo-reduced amino acid compositions, which can be easily computed based on the amino acid groupings with the user-defined alphabet size and amino acids' properties.</br>
