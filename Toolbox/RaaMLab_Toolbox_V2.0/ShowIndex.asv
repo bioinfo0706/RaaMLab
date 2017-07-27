@@ -1,0 +1,106 @@
+
+function ShowIndex(database,index)
+% show the databases in the RaaMlab toolbox
+% database -> kinds of the databases in the RaaMlab Choices are:
+%       '1'  - AAindex1 for amino acid index of 20 numerical values
+%       '2'  - AAindex2 for the amino acid mutation matrix
+%       '3'  - AAindex3 for the statistical protein contact potentials
+%       '4'  - Published amino acid groupings
+% index    -> vector with word lengths
+% opt -> 1 (def.) mahalanobis distance, 0 -> mahal. will not be calculated.
+% 
+% nas -> struct variable. Example: clf = 
+%
+%              ref: 'clfa'
+%           refs: {1x7 cell  }
+%            seq: {1x7 cell  }
+%             tp: 'acgt'
+%            num: [1x7 struct]
+%           cgrs: [1x7 struct]
+%         counts: {1x6 cell  }
+%          freqs: {1x6 cell  }
+%              L: [1 2 3 4 5 6]
+%          words: {1x6 cell  }
+%        overlap: {1x6 cell  }
+%            var: {1x6 cell  }
+%            cov: {1x6 cell  }
+%         euclid: {1x6 cell  }
+%      stdeuclid: {1x6 cell  }
+%       kullback: {1x6 cell  }
+%    mahalanobis: {1x6 cell  }
+%            cov: {1x6 cell  }
+%
+% Calls: cgcria(txt); freqseq(nas,L); overlap(nas); nas=word_var(nas); nas=word_cov(nas);nas=distance(nas)
+% See report for details about fields and help of functions called
+% use plotdistance(nas) and classif(nas,+options) to see results
+% Susana Vinga, 8 Mar 2002, 12Mar02; 5Abr02; 24Mai02
+
+
+Names=caseread('Index.txt');
+[s1 s2]=size(Names);
+Keyindex=zeros(1,1000);
+Keyindex(1)=1;k=1;
+Worlds=cell(1,1000);
+% the index of all the data, 1-544 for database1, 545-637 for database2,
+% 638-684 for databses3, and 685-718 for databse4
+KeyWorld=Names(1,3:s2);%
+for i=1:s1
+    if findstr('//',Names(i,:))==1
+        k=k+1;
+        Keyindex(k)=i;%Œª÷√
+        if i<=s1-1
+            KeyWorld=strcat(KeyWorld,Names(i+1,3:s2));
+            Worlds{k-1}=Names(i+1,:);
+        end
+    end
+end
+
+if nargin ==0
+    error('You should input the righ parameters');
+elseif nargin ==1
+    if database==fix(database)
+    switch(database)
+    case 1
+        for t=1:544
+            in=['No.',num2str(t),' of the database ',num2str(database), ' is  ',Worlds{t}];
+            disp(in)
+        end
+     case 2
+        for t=545:637
+            in=['No.',num2str(t-544),' of the database ',num2str(database), ' is  ',Worlds{t}];
+            disp(in)
+        end
+     case 3
+        for t=638:684
+            in=['No.',num2str(t-637),' of the database ',num2str(database), ' is  ',Worlds{t}];
+            disp(in)
+        end
+     case 4
+        for t=685:718
+            in=['No.',num2str(t-685),' of the database ',num2str(database), ' is  ',Worlds{t}];
+            disp(in)
+        end
+    end
+    else
+      error('You should input the righ parameters'); 
+    
+else
+ dw1=0;dw=0;ii=1;
+while dw1==0
+   dw1=findstr(index,Worlds{ii}) ;
+   if dw1~=0
+   dw=ii;
+   else
+       dw1=0;
+       ii=ii+1;
+   end
+end
+ dw=dw+1;
+   if dw~=0 
+   display(Names(Keyindex(dw):Keyindex(dw+1),:));
+   else
+    warnning=strcat('There is no: ',index);
+    display(warnning);
+   end     
+end
+

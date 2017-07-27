@@ -1,0 +1,59 @@
+function [Composition,Transition,Distribution] = RCTD(Seq,reduce)
+%% 输入参数
+N=length(Seq); %求出序列长度
+AA='ARNDCQEGHILKMFPSTWYV'; %给出氨基酸字母表
+G=max(reduce); %求约化后字符的种类个数
+RSeq=('');
+RAA=AA(1:G); %求约化后的氨基酸字母表
+for si=1:N
+    for sj=1:20
+        if Seq(si)==AA(sj)
+            RSeq(si)=RAA(reduce(sj)); %序列转换成约化序列Seq==RSeq
+        end
+    end
+end
+%% 求Composition
+Composition=zeros(1,G);
+for si=1:G
+    Aa=findstr(RAA(si),RSeq);
+    Composition(1,si)=length(Aa)/N; %求Composition 即约化后的AAC
+end
+%% 求Translation
+RAA=AA(1:G); %求约化后的氨基酸字母表
+n=1;
+aa={''};
+for si=1:G
+    for sj=si+1:G
+        aa{1,n}=[RAA(si),RAA(sj)];
+        aa{2,n}=[aa{1,n}(2),aa{1,n}(1)];
+        n=n+1;
+    end
+end
+Transition=zeros(1,size(aa,2));
+for si=1:size(aa,2)
+    t1=length(findstr(aa{1,si},RSeq));
+    t2=length(findstr(aa{2,si},RSeq));
+    Transition(si)=(t1+t2)/(N-1);
+end
+%% 求Distribution
+RAA=AA(1:G); %求约化后的氨基酸字母表
+Aac={1,G};
+for si=1:G
+    Aac{si}=findstr(RAA(si),RSeq);
+end
+D={G};
+for si=1:G
+    if isempty(Aac{si})
+        D{si}(1:5)=0;
+    elseif Aac{si}(1)==1
+        D{si}(1)=0;
+    else
+        D{si}(1)=Aac{si}(1)/N;
+        D{si}(2)=Aac{si}(round(length(Aac{si})*0.25))/N;
+        D{si}(3)=Aac{si}(round(length(Aac{si})*0.50))/N;
+        D{si}(4)=Aac{si}(round(length(Aac{si})*0.75))/N;
+        D{si}(5)=Aac{si}(length(Aac{si}))/N;
+    end
+end
+Distribution=cell2mat(D);
+%%

@@ -1,0 +1,101 @@
+function [MBAC1,MBAC2,MBAC3] = RACF(Index,Seq,reduce,d)
+% Compute the correlation-based features, describing correlation relationships among 
+% the distributions of reduced amino acids. There are three different autocorrelation 
+% features, normalized Moreau¨CBroto autocorrelation, Moran autocorrelation and Geary autocorrelation, 
+% in the proposed RedAA mode. Each of these features has Z descriptor values, where Z is a given parameter.
+% The output of the function are MBAC1,MBAC2 and MBAC3 which are
+% corresponding to the normalized Moreau¨CBroto autocorrelation, Moran
+% autocorrelation and Geary autocorrelation, respectively.
+% Parameters of the function
+% Index -> a kind of chosen physico-chemical properties of database1
+% Seq -> the loaded protein sequence
+% reduce-> the reduced amino acids 
+% d-> the lag of the correlation 
+% RaaMLab: a MATLAB toolbox for generating amino acid group-ings and RedAA modes
+% Qi Dai, 20 Apri 2014,
+%
+
+% tansform the protein sequence into the reduced sequences
+N=length(Seq); 
+AA='ARNDCQEGHILKMFPSTWYV'; 
+G=max(reduce); 
+indextxt=importdata('AAindex.txt');
+for si=1:length(indextxt.textdata)
+     a=indextxt.textdata{si};
+     b=strcmp(Index,a);
+     if b==1
+         AAindex=indextxt.data(si,:);
+     end
+end
+ra={1,G};
+rai={1,G};
+raii=zeros(1,G);
+for si=1:G
+    ra{si}=findstr(reduce,si);
+    for sj=1:length(ra{si})
+        rai{si}(sj)=AAindex(ra{si}(sj));
+    end
+    raii(si)=sum(rai{si});
+end
+RAAindex=zeros(1,20);
+for si=1:G
+    for sj=1:20
+        if reduce(sj)==si
+            RAAindex(sj)=raii(si);
+        end
+    end
+end
+
+RSeq=('');
+for si=1:N
+    for sj=1:20
+        if Seq(si)==AA(sj)
+            RSeq(si)=AA(reduce(sj));
+        end
+    end
+end
+
+RAA=AA(1:G); 
+Seqindex=zeros(1,N);
+for si=1:N
+    for sj=1:G
+        if RSeq(si)==RAA(sj)
+            Seqindex(si)=RAAindex(sj);
+        end
+    end
+end
+% Compute the normalized Moreau¨CBroto autocorrelation
+MBAC1=zeros(1,d);
+for si=1:d
+     MBAC1(si)=0;
+    for sj=1:N-si
+        MBAC1(si)=MBAC1(si)+(Seqindex(sj)*Seqindex(sj+si));
+    end
+    MBAC1(si)=MBAC1(si)/N-si;
+end
+% Compute the Moran autocorrelation
+MBAC2=zeros(1,d);
+for si=1:d
+     MBAC2(si)=0;
+    for sj=1:N-si
+        p1=Seqindex(sj)-mean(Seqindex);
+        p2=Seqindex(sj+si)-mean(Seqindex);
+        MBAC2(si)=MBAC2(si)+(p1*p2);
+    end
+    MBAC2(si)=MBAC2(si)/N-si;
+    p3=Seqindex-mean(Seqindex);
+    MBAC2(si)=MBAC2(si)/mean(sum(p3.*p3));
+end
+% Geary autocorrelation
+MBAC3=zeros(1,d);
+for si=1:d
+     MBAC3(si)=0;
+    for sj=1:N-si
+        p1=Seqindex(sj)-Seqindex(sj+si);
+        MBAC3(si)=MBAC3(si)+(p1^2);
+    end
+    MBAC3(si)=MBAC3(si)/(N-si)*2;
+    p2=Seqindex-mean(Seqindex);
+    p3=sum(p2.*p2)/N-1;
+    MBAC3(si)=MBAC3(si)/p3;
+end
