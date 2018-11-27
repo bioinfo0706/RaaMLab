@@ -16,7 +16,7 @@ Xiaoqing Liu, Tao Zhou, Jin Tao, Jiaqi, Pingan He, Qi Dai. RaaMLab: A MATLAB too
 　　Please download the UserGuide for RaaMLab_Toolbox_V1.0 as PDF file. </br>
 
 ### Supplementary materials
-　　Please download the databases of RaaMLab in supplementary. </br>
+　　Please download the databases of RaaMLab in supplementary. </br> It includes four AA index databases. </br>
 
 ### Contact
 　　Email: daiailiu04@yahoo.com. </br>
