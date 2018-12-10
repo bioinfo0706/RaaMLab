@@ -10218,6 +10218,100 @@ I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
    -0.21    2.11    0.96    1.36   -6.04    1.52    2.30    0.00   -1.23   -4.81
    -4.68    3.88   -3.66   -4.65    0.75    1.74    0.78   -3.32   -1.01   -3.50
 //
+H WOLR150101
+D transfer uncharged molecules form wat to cyc at 25°„C (Wolfenden et al., 2015)
+R PMID:26034278
+A Wolfenden, R.
+T Temperature dependence of amino acid hydrophobicities 
+J Proc Natl Acad Sci U S A, 112(24), 7484-7488
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    2.11   -4.32   -4.88   -3.29    1.53   -4.07   -2.26    0.20   -3.49    4.24
+    4.24   -0.27    1.91    2.64    3.75   -2.82   -1.83    1.83   -0.31    4.09
+//
+H WOLR150102
+D transfer uncharged molecules form wat to cyc at 100°„C (Wolfenden et al., 2015)
+R PMID:26034278
+A Wolfenden, R.
+T Temperature dependence of amino acid hydrophobicities 
+J Proc Natl Acad Sci U S A, 112(24), 7484-7488
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    2.49   -2.30   -3.83   -2.06    1.99   -2.78   -2.26    0.53   -1.78    4.39
+    4.33    0.51    2.03    2.60    3.83   -2.82   -1.88    1.81    0.33    4.31
+//
+H WOLR150103
+D transfer charged and uncharged molecules form neutral aqueous solution to cyc 
+  at 25°„C (Wolfenden et al., 2015)
+R PMID:26034278
+A Wolfenden, R.
+T Temperature dependence of amino acid hydrophobicities 
+J Proc Natl Acad Sci U S A, 112(24), 7484-7488
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    2.11  -10.92   -4.88   -5.53    1.53   -4.07   -4.44    0.20   -3.79    4.24
+    4.24   -4.22    1.91    2.64    3.75   -2.82   -1.83    1.83   -0.31    4.09
+//
+H WOLR150104
+D transfer charged and uncharged molecules form neutral aqueous solution to cyc 
+  at 100°„C (Wolfenden et al., 2015)
+R PMID:26034278
+A Wolfenden, R.
+T Temperature dependence of amino acid hydrophobicities 
+J Proc Natl Acad Sci U S A, 112(24), 7484-7488
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    2.49   -7.11   -3.83   -3.44    1.99   -2.78   -2.06    0.53   -2.38    4.39
+    4.33   -2.26    2.03    2.60    3.83   -1.72   -1.85    1.81    0.33    4.31
+//
+H GUYH850106
+D Energy transfer from wet octanol to water (Guy, 1985)
+R PMID:3978191
+A Guy, H.R.
+T Amino acid side-chain partition energies and distribution of residues in 
+  soluble proteins
+J Biophys. J. 47, 61-70 (1985) 
+C 
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    0.52   -1.32   -0.01      ND      ND   -0.07   -0.79      0.    0.95    2.04
+    1.76    0.08    1.32    2.09      0.    0.04    0.27    2.51    1.63    1.18
+//
+H CHOC760105
+D Tendency of amino acid residue to be buried in the interior of a globular
+  protein (Chothia, 1976)
+R LIT:2004094b PMID:994183
+A Chothia, C.
+T The nature of the accessible and buried surfaces in proteins
+J J. Mol. Biol. 105, 1-14 (1976) (normalized by the total number)
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+   -0.29   -2.71   -1.18   -1.02      0.   -1.53   -0.90   -0.34   -0.94    0.24
+   -0.02   -2.05   -0.24      0.      0.   -0.75   -0.71   -0.59   -1.02    0.09
+//
+H HESS050101
+D Tendency of amino acid residue to be found in a transmembrane helix (Hessa et al., 2005)
+R PMID:15674282
+A Hessa, T., Kim, H., Bihlmaier, K., Lundin, C., Boekel, J., Andersson, H., 
+  Nilsson, I., White, S.H., von Heijine, G.
+T Recognition of transmembrane helices by the endoplasmic reticulum translocon
+J Nature. 433(7024),377-381 (2005) 
+C
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    0.13    2.58    2.05    3.49   -0.13    2.36    2.68    0.74    2.06   -0.60
+   -0.55    2.71   -0.10   -0.32    2.23    0.84    0.52    0.30    0.68   -0.31
+//
+H WIML960101
+D Energies transfer of AcWl-X-LL peptides from water to wet octanol (Wimley et al., 1996)
+R PMID:8611495
+A Wimley, W.C., Creamer, T.P., White, S.H.
+T Solvation energies of amino acid side chains and backbone in a family of 
+  host-guest pentapeptides
+J Biochemistry. 35(16):5109-24 (1996) 
+C 
+I    A/L     R/K     N/M     D/F     C/P     Q/S     E/T     G/W     H/Y     I/V
+    0.87    2.99    0.30   -2.46    1.23    0.30   -2.53    1.01    0.92    2.16
+    2.29    2.49    1.71    2.68    0.90    0.85    0.95    2.96    1.67    1.61
+//
 H ALTS910101
 D The PAM-120 matrix (Altschul, 1991)
 R LIT:1713145 PMID:2051488

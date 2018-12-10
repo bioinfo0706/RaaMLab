@@ -15,8 +15,8 @@ Names=caseread('Index.txt');
 Keyindex=zeros(1,1000);
 Keyindex(1)=1;k=1;
 Worlds=cell(1,1000);
-% the index of all the data, 1-544 for database1, 545-637 for database2,
-% 638-684 for databses3, and 685-718 for databse4
+% the index of all the data, 1-551 for database1, 552-645 for database2,
+% 646-692 for databses3, and 693-726 for databse4
 KeyWorld=Names(1,3:s2);%
 for i=1:s1
     if findstr('//',Names(i,:))==1
@@ -35,23 +35,23 @@ elseif nargin ==1
     if database==1|database==2|database==3|database==4
     switch(database)
     case 1
-        for t=1:544
+        for t=1:551
             in=['No.',num2str(t),' AAindex in the database ',num2str(database), ' is  ',Worlds{t}];
             disp(in)
         end
      case 2
-        for t=545:637
-            in=['No.',num2str(t-544),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
+        for t=552:645
+            in=['No.',num2str(t-551),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
             disp(in)
         end
      case 3
-        for t=638:684
-            in=['No.',num2str(t-637),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
+        for t=646:692
+            in=['No.',num2str(t-645),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
             disp(in)
         end
      case 4
-        for t=685:718
-            in=['No.',num2str(t-685),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
+        for t=693:726
+            in=['No.',num2str(t-692),' AAindex of the database ',num2str(database), ' is  ',Worlds{t}];
             disp(in)
         end
     end
